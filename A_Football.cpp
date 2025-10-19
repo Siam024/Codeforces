@@ -5,17 +5,26 @@ using namespace std;
 int main()
 {
     fastIO;
-    string s;
-    int cnt=1;
-    cin>>s;
-    for(int i = 0 ; i < s.size()-1 ; i++){
-        if(s[i]==s[i+1])cnt++;
-        else cnt=1;
-        if(cnt==7){
-            cout<<"YES";
-            return 0;
+    int n,cnt1=1,cnt2=0;
+    string tmp;
+    cin>>n;
+    vector<string> v;
+    for(int i=0 ; i<n ; i++){
+        cin>>tmp;
+        v.push_back(tmp);
+    }
+    for(int i=1 ; i<n ; i++){
+        if(v[i]==v[0])cnt1++;
+        else cnt2++;
+    }
+    if(cnt1>cnt2)cout<<v[0];
+    else {
+        for(int i=1 ; i<n ; i++){
+            if(v[i]!=v[0]){
+                cout<<v[i];
+                return 0;
+            }
         }
     }
-    cout<<"NO";
     return 0;
 }
